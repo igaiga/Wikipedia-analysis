@@ -5,17 +5,16 @@
 # ※記事名の中にspaceが入っているデータをうまく扱えない問題があります。
 
 require 'CGI'
-#filename = 'sample.txt'
-#filename = 'pagecounts-20120301-000000'
-filename = '20120301-000000-ja.txt'
+filename = 'pagecounts-20120301-000000'
+#filename = '20120301-000000-ja.txt'
 file = File.open(filename, 'r:UTF-8')
 list = []
 while text = file.gets
   begin
     next unless text =~ /^ja/
     #print CGI.unescape(text) if text =~ /^ja/
-    data = CGI.unescape(text).split
-    h = {:title => data[1], :count => data[-2]}
+    data = text.split
+    h = {:title => CGI.unescape(data[1]), :count => data[-2]}
     list << h
   rescue Exception => e
     #p e
@@ -25,11 +24,7 @@ file.close
 
 # count順にソート
 result = list.sort_by do |i|
-  if i
-    i[:count].to_i
-  else
-    0
-  end
+  i[:count].to_i
 end
 
 # トップ20表示
