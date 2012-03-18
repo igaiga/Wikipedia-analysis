@@ -6,8 +6,8 @@
 
 require 'CGI'
 #filename = 'sample.txt'
-filename = 'pagecounts-20120301-000000'
-#filename = '20120301-000000-ja.txt'
+#filename = 'pagecounts-20120301-000000'
+filename = '20120301-000000-ja.txt'
 file = File.open(filename, 'r:UTF-8')
 list = []
 while text = file.gets
@@ -15,7 +15,7 @@ while text = file.gets
     next unless text =~ /^ja/
     #print CGI.unescape(text) if text =~ /^ja/
     data = CGI.unescape(text).split
-    h = {:title => data[1], :count => data[2]}
+    h = {:title => data[1], :count => data[-2]}
     list << h
   rescue Exception => e
     #p e
