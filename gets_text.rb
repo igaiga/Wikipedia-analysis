@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Wikipedia のページビューを解析するコード
+# Data file(pagecounts-20120301-000000) は以下のページから取得
 # http://dumps.wikimedia.org/other/pagecounts-raw/
-# 言語コード 記事名 閲覧回数 ページ容量(byte)
-# ※記事名の中にspaceが入っているデータをうまく扱えない問題があります。
+# Data file format : 言語コード 記事名 閲覧回数 ページ容量(byte)
 
 require 'CGI'
 filename = 'pagecounts-20120301-000000'
