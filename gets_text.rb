@@ -4,7 +4,7 @@
 # http://dumps.wikimedia.org/other/pagecounts-raw/
 # Data file format : 言語コード 記事名 閲覧回数 ページ容量(byte)
 
-require 'CGI'
+require 'cgi'
 filename = 'pagecounts-20120301-000000'
 #filename = '20120301-000000-ja.txt'
 file = File.open(filename, 'r:UTF-8')
