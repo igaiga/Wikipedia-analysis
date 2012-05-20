@@ -15,6 +15,8 @@ while text = file.gets
     #print CGI.unescape(text) if text =~ /^ja/
     data = text.split
     h = {:title => CGI.unescape(data[1]), :count => data[-2]}
+    # replace to follow line if you use windows prompt and display like "\u4FDD\u5143\u306E\u4E71".
+    # h = {:title => CGI.unescape(data[1]).encode("cp932"), :count => data[-2]}
     list.push h
   rescue Exception => e
     #p e
