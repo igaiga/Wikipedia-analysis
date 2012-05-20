@@ -15,7 +15,7 @@ while text = file.gets
     #print CGI.unescape(text) if text =~ /^ja/
     data = text.split
     h = {:title => CGI.unescape(data[1]), :count => data[-2]}
-    list << h
+    list.push h
   rescue Exception => e
     #p e
   end
